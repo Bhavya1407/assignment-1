@@ -1,0 +1,339 @@
+C:\Users\HP>mongo "mongodb+srv://mongo-practice.5l4de.mongodb.net/mongo-practice" --apiVersion 1 --username mongo-practice  --password Bhavya
+MongoDB shell version v5.0.8
+connecting to: mongodb://mongo-practice-shard-00-02.5l4de.mongodb.net:27017,mongo-practice-shard-00-01.5l4de.mongodb.net:27017,mongo-practice-shard-00-00.5l4de.mongodb.net:27017/mongo-practice?authSource=admin&compressors=disabled&gssapiServiceName=mongodb&replicaSet=atlas-4zliyz-shard-0&ssl=true
+{"t":{"$date":"2022-05-13T06:08:35.605Z"},"s":"W",  "c":"NETWORK",  "id":23019,   "ctx":"ReplicaSetMonitor-TaskExecutor","msg":"DNS resolution while connecting to peer was slow","attr":{"peer":"mongo-practice-shard-00-02.5l4de.mongodb.net:27017","durationMillis":2038}}
+{"t":{"$date":"2022-05-13T06:08:37.621Z"},"s":"W",  "c":"NETWORK",  "id":23019,   "ctx":"ReplicaSetMonitor-TaskExecutor","msg":"DNS resolution while connecting to peer was slow","attr":{"peer":"mongo-practice-shard-00-01.5l4de.mongodb.net:27017","durationMillis":4053}}
+{"t":{"$date":"2022-05-13T06:08:37.634Z"},"s":"W",  "c":"NETWORK",  "id":23019,   "ctx":"ReplicaSetMonitor-TaskExecutor","msg":"DNS resolution while connecting to peer was slow","attr":{"peer":"mongo-practice-shard-00-00.5l4de.mongodb.net:27017","durationMillis":4066}}
+{"t":{"$date":"2022-05-13T06:08:37.637Z"},"s":"W",  "c":"NETWORK",  "id":23019,   "ctx":"ReplicaSetMonitor-TaskExecutor","msg":"DNS resolution while connecting to peer was slow","attr":{"peer":"mongo-practice-shard-00-02.5l4de.mongodb.net:27017","durationMillis":1395}}
+Implicit session: session { "id" : UUID("e77c8f54-8f36-4a45-9ca3-a0a5522ad8e5") }
+MongoDB server version: 5.0.8
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+users   0.000GB
+> db.movies.insertMany([{title:"Fight Club",writer:"Chuck Palahniuko",year:1999,actors:["Brad Pitt","Edward Norton"]},{title:"Pulp Fiction",writer:"Quentin Tarantino",year:1994,actors:["John Travolta","Uma Thurman"]},{title:"Inglorious Basterds",writer:"Quentin Tarantino",year:2009,actors:["Brad Pitt","Diane Kruger","Eli Roth"]},{title:"The Hobbit:An Unexpected Journey",writer:"J.R.R.Tolkein",year:2012,franchise:"The Hobbit"},{title:"The Hobbit:The Desolation of Smaug",writer:"J.R.R.Tolkein",year:2013,franchise:"The Hobbit"},{title:"The Hobbit:The Battle of the Five Armies",writer:"J.R.R.Tolkein",year:2012,franchise:"The Hobbit",synopsis:"Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness."},{title:"Pee Wee Herman's Big Adventure"},{title:"Avatar"}]),{title:"The Hobbit:The Battle of the Five Armies",writer:"J.R.R.Tolkein",year:2012,franchise:"The Hobbit",synopsis:"Bilbo and Company are for{ed to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness."},{title:"Pee Wee Herman's Big Adve        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("6107fbfdb07a149005b02a87"),
+                ObjectId("6107fbfdb07a149005b02a88"),
+                ObjectId("6107fbfdb07a149005b02a89"),
+                ObjectId("6107fbfdb07a149005b02a8a"),
+                ObjectId("6107fbfdb07a149005b02a8b"),
+                ObjectId("6107fbfdb07a149005b02a8c"),
+                ObjectId("6107fbfdb07a149005b02a8d"),
+                ObjectId("6107fbfdb07a149005b02a8e")
+        ]
+}
+> db.movies.find()
+{ "_id" : ObjectId("6107fbfdb07a149005b02a87"), "title" : "Fight Club", "writer" : "Chuck Palahniuko", "year" : 1999, "actors" : [ "Brad Pitt", "Edward Norton" ] }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a88"), "title" : "Pulp Fiction", "writer" : "Quentin Tarantino", "year" : 1994, "actors" : [ "John Travolta", "Uma Thurman" ] }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a89"), "title" : "Inglorious Basterds", "writer" : "Quentin Tarantino", "year" : 2009, "actors" : [ "Brad Pitt", "Diane Kruger", "Eli Roth" ] }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8a"), "title" : "The Hobbit:An Unexpected Journey", "writer" : "J.R.R.Tolkein", "year" : 2012, "franchise" : "The Hobbit" }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8b"), "title" : "The Hobbit:The Desolation of Smaug", "writer" : "J.R.R.Tolkein", "year" : 2013, "franchise" : "The Hobbit" }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8c"), "title" : "The Hobbit:The Battle of the Five Armies", "writer" : "J.R.R.Tolkein", "year" : 2012, "franchise" : "The Hobbit", "synopsis" : "Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness." }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8d"), "title" : "Pee Wee Herman's Big Adventure" }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8e"), "title" : "Avatar" }
+> db.movies.find({writer:"Quentin Tarantino"})
+{ "_id" : ObjectId("6107fbfdb07a149005b02a88"), "title" : "Pulp Fiction", "writer" : "Quentin Tarantino", "year" : 1994, "actors" : [ "John Travolta", "Uma Thurman" ] }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a89"), "title" : "Inglorious Basterds", "writer" : "Quentin Tarantino", "year" : 2009, "actors" : [ "Brad Pitt", "Diane Kruger", "Eli Roth" ] }
+> db.movies.find({actors:"Brad Pitt"})
+{ "_id" : ObjectId("6107fbfdb07a149005b02a87"), "title" : "Fight Club", "writer" : "Chuck Palahniuko", "year" : 1999, "actors" : [ "Brad Pitt", "Edward Norton" ] }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a89"), "title" : "Inglorious Basterds", "writer" : "Quentin Tarantino", "year" : 2009, "actors" : [ "Brad Pitt", "Diane Kruger", "Eli Roth" ] }
+> db.movies.find({franchise:"The Hobbit"})
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8a"), "title" : "The Hobbit:An Unexpected Journey", "writer" : "J.R.R.Tolkein", "year" : 2012, "franchise" : "The Hobbit" }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8b"), "title" : "The Hobbit:The Desolation of Smaug", "writer" : "J.R.R.Tolkein", "year" : 2013, "franchise" : "The Hobbit" }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8c"), "title" : "The Hobbit:The Battle of the Five Armies", "writer" : "J.R.R.Tolkein", "year" : 2012, "franchise" : "The Hobbit", "synopsis" : "Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness." }
+> db.movies.find({$and:[{year:{$gt:1900}},{year:{$lt:2000}}]})
+{ "_id" : ObjectId("6107fbfdb07a149005b02a87"), "title" : "Fight Club", "writer" : "Chuck Palahniuko", "year" : 1999, "actors" : [ "Brad Pitt", "Edward Norton" ] }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a88"), "title" : "Pulp Fiction", "writer" : "Quentin Tarantino", "year" : 1994, "actors" : [ "John Travolta", "Uma Thurman" ] }
+> db.movies.find({$or:[{year:{$lt:2000}},{year:{$gt:2010}}]})
+{ "_id" : ObjectId("6107fbfdb07a149005b02a87"), "title" : "Fight Club", "writer" : "Chuck Palahniuko", "year" : 1999, "actors" : [ "Brad Pitt", "Edward Norton" ] }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a88"), "title" : "Pulp Fiction", "writer" : "Quentin Tarantino", "year" : 1994, "actors" : [ "John Travolta", "Uma Thurman" ] }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8a"), "title" : "The Hobbit:An Unexpected Journey", "writer" : "J.R.R.Tolkein", "year" : 2012, "franchise" : "The Hobbit" }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8b"), "title" : "The Hobbit:The Desolation of Smaug", "writer" : "J.R.R.Tolkein", "year" : 2013, "franchise" : "The Hobbit" }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8c"), "title" : "The Hobbit:The Battle of the Five Armies", "writer" : "J.R.R.Tolkein", "year" : 2012, "franchise" : "The Hobbitdb.movies.update({_id:ObjectId("6107fbfdb07a149005b02a8b")},{$set:{synopsis:"The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim their mountain home - and the gold within it - from the dragon Smaug."}})s:"The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaWriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 }) Smaug."}})                   it, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group
+> db.movies.update({_id:ObjectId("6107fbfdb07a149005b02a8a")},{$set:{synopsis:"A reluctant hobbit, Bilbo Baggins, sets outdb.movies.update({_id:ObjectId("6107fbfdb07a149005b02a8a")},{$set:{synopsis:"A reluctant hobbit, Bilbo Baggins, sets outdb.movies.update({_id:ObjectId("6107fbfdb07a149005b02a8a")},{$set:{synopsis:"A reluctant hobbit,db.movies.update({_id:Obdb.movies.update({_id:ObjectId("6107fbfdb07a149005b02a8b")},{$set:{synopsis:"The dwarves, along with Bilbo Baggins and Gdb.movies.update({_id:ObjectId("6107fbfdb07a149005b02a8b")},{$set:{synopsis:"The dwarves, along with Bilbo Baggins and Gdb.movies.update({_id:ObjectId("6107fbfdb07a149005b02a8b")},{$set:{synopdb.movies.update({_id:ObjectId("6107fbfdb07a1490db.movies.update({_id:ObjectId("6107fbfdb07a149005b02a8b")},{$set:{synopsis:"The dwarves, along with Bilbo Baggins an)  db.movies.update({_id:ObjectId("6107fbfdb07a149005b02a8b")},{$set:{synopsis:"The dwarves, along with Bilbo Baggins and) db.movies.update({_id:ObjectId("6107fbfdb07a1490db.movies.update({_id:ObjectId("6107fbfdb07a149005b02a8b")},{$set:{synopdb.movies.update({_id:ObjectId("6107fbfdb07a149005b02a8b")},{$set:{synopsis:"The dwarves, along db.movies.update({_id:ObjectId("6107fbfdb07a149005b02a8b")},{$set:{synopsis:"The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim their mountain home - and the gold within it - from the dragon Smaug."}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 0 })
+> db.movies.update({_id:ObjectId("6107fbfdb07a149005b02a88")},{$push:{actors:"Samuel L.Jackson"}});
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.movies.find();
+{ "_id" : ObjectId("6107fbfdb07a149005b02a87"), "title" : "Fight Club", "writer" : "Chuck Palahniuko", "year" : 1999, "actors" : [ "Brad Pitt", "Edward Norton" ] }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a88"), "title" : "Pulp Fiction", "writer" : "Quentin Tarantino", "year" : 1994, "actors" : [ "John Travolta", "Uma Thurman", "Samuel L.Jackson" ] }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a89"), "title" : "Inglorious Basterds", "writer" : "Quentin Tarantino", "year" : 2009, "actors" : [ "Brad Pitt", "Diane Kruger", "Eli Roth" ] }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8a"), "title" : "The Hobbit:An Unexpected Journey", "writer" : "J.R.R.Tolkein", "year" : 2012, "franchise" : "The Hobbit", "synopsis" : "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug." }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8b"), "title" : "The Hobbit:The Desolation of Smaug", "writer" : "J.R.R.Tolkein", "year" : 2013, "franchise" : "The Hobbit", "synopsis" : "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim their mountain home - and the gold within it - from the dragon Smaug." }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8c"), "title" : "The Hobbit:The Battle of the Five Armies", "writer" : "J.R.R.Tolkein", "year" : 2012, "franchise" : "The Hobbit", "synopsis" : "Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness." }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8d"), "title" : "Pee Wee Herman's Big Adventure" }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8e"), "title" : "Avatar" }
+> db.movies.find({$text:{$search:"Bilbo"}}).pretty()
+Error: error: {
+        "ok" : 0,
+        "errmsg" : "text index required for $text query",
+        "code" : 27,
+        "codeName" : "IndexNotFound"
+}
+> db.movies.find({ $text :{$search:"Bilbo"}}).pretty()
+Error: error: {
+        "ok" : 0,
+        "errmsg" : "text index required for $text query",
+        "code" : 27,
+        "codeName" : "IndexNotFound"
+}
+> db.movies.find({ $text: {$search:"Bilbo"}}).pretty()
+Error: error: {
+        "ok" : 0,
+        "errmsg" : "text index required for $text query",
+        "code" : 27,
+        "codeName" : "IndexNotFound"
+}
+> db.movies.find({synopsis: /.Bilbo./}).pretty()
+{
+        "_id" : ObjectId("6107fbfdb07a149005b02a8a"),
+        "title" : "The Hobbit:An Unexpected Journey",
+        "writer" : "J.R.R.Tolkein",
+        "year" : 2012,
+        "franchise" : "The Hobbit",
+        "synopsis" : "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug."
+}
+{
+        "_id" : ObjectId("6107fbfdb07a149005b02a8b"),
+        "title" : "The Hobbit:The Desolation of Smaug",
+        "writer" : "J.R.R.Tolkein",
+        "year" : 2013,
+        "franchise" : "The Hobbit",
+        "synopsis" : "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim their mountain home - and the gold within it - from the dragon Smaug."
+}
+> db.movies.find({synopsis:{$regex:"Bilbo"}});
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8a"), "title" : "The Hobbit:An Unexpected Journey", "writer" : "J.R.R.Tolkein", "year" : 2012, "franchise" : "The Hobbit", "synopsis" : "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug." }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8b"), "title" : "The Hobbit:The Desolation of Smaug", "writer" : "J.R.R.Tolkein", "year" : 2013, "franchise" : "The Hobbit", "synopsis" : "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim their mountain home - and the gold within it - from the dragon Smaug." }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8c"), "title" : "The Hobbit:The Battle of the Five Armies", "writer" : "J.R.R.Tolkein", "year" : 2012, "franchise" : "The Hobbit", "synopsis" : "Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness." }
+> db.movies.find({synopsis:{$regex:"Gandalf"}})
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8b"), "title" : "The Hobbit:The Desolation of Smaug", "writer" : "J.R.R.Tolkein", "year" : 2013, "franchise" : "The Hobbit", "synopsis" : "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim their mountain home - and the gold within it - from the dragon Smaug." }
+> db.movies.find({$and:[{synopsis:{$regex:"Bilbo"}},{synopsis:{$not:/Gandalf/}}]})
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8a"), "title" : "The Hobbit:An Unexpected Journey", "writer" : "J.R.R.Tolkein", "year" : 2012, "franchise" : "The Hobbit", "synopsis" : "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug." }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8c"), "title" : "The Hobbit:The Battle of the Five Armies", "writer" : "J.R.R.Tolkein", "year" : 2012, "franchise" : "The Hobbit", "synopsis" : "Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness." }
+> db.movies.find({$or:[{synopsis:/dwarves/}, {synopsis:/hobbit/}]}).pretty()
+{
+        "_id" : ObjectId("6107fbfdb07a149005b02a8a"),
+        "title" : "The Hobbit:An Unexpected Journey",
+        "writer" : "J.R.R.Tolkein",
+        "year" : 2012,
+        "franchise" : "The Hobbit",
+        "synopsis" : "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug."
+}
+{
+        "_id" : ObjectId("6107fbfdb07a149005b02a8b"),
+        "title" : "The Hobbit:The Desolation of Smaug",
+        "writer" : "J.R.R.Tolkein",
+        "year" : 2013,
+        "franchise" : "The Hobbit",
+        "synopsis" : "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim their mountain home - and the gold within it - from the dragon Smaug."
+}
+> db.movies.remove({title: "Pee Wee Herman's Big Adventure"})
+WriteResult({ "nRemoved" : 1 })
+> db.movies.remove({title: "Avatar"})
+WriteResult({ "nRemoved" : 1 })
+> db.movies.find()
+{ "_id" : ObjectId("6107fbfdb07a149005b02a87"), "title" : "Fight Club", "writer" : "Chuck Palahniuko", "year" : 1999, "actors" : [ "Brad Pitt", "Edward Norton" ] }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a88"), "title" : "Pulp Fiction", "writer" : "Quentin Tarantino", "year" : 1994, "actors" : [ "John Travolta", "Uma Thurman", "Samuel L.Jackson" ] }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a89"), "title" : "Inglorious Basterds", "writer" : "Quentin Tarantino", "year" : 2009, "actors" : [ "Brad Pitt", "Diane Kruger", "Eli Roth" ] }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8a"), "title" : "The Hobbit:An Unexpected Journey", "writer" : "J.R.R.Tolkein", "year" : 2012, "franchise" : "The Hobbit", "synopsis" : "A reluctant hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home - and the gold within it - from the dragon Smaug." }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8b"), "title" : "The Hobbit:The Desolation of Smaug", "writer" : "J.R.R.Tolkein", "year" : 2013, "franchise" : "The Hobbit", "synopsis" : "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim their mountain home - and the gold within it - from the dragon Smaug." }
+{ "_id" : ObjectId("6107fbfdb07a149005b02a8c"), "title" : "The Hobbit:The Battle of the Five Armies", "writer" : "J.R.R.Tolkein", "year" : 2012, "franchise" : "The Hobbit", "synopsis" : "Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness." }
+> db.users.insert({_id:1,username:"GoodGuyGreg",first_name:"Good Guy",last_name:"Gang"})
+WriteResult({ "nInserted" : 1 })
+> db.users.insert({_id:2,username:"ScumbagSteve",fullname:{first:"Scumbag", last:"Steve"}))
+uncaught exception: SyntaxError: missing } after property list :
+@(shell):1:87
+> db.users.insert({_id:2,username:"ScumbagSteve",fullname:{first:"Scumbag", last:"Steve"}})
+WriteResult({ "nInserted" : 1 })
+> db.users.findOne()
+{
+        "_id" : 1,
+        "username" : "GoodGuyGreg",
+        "first_name" : "Good Guy",
+        "last_name" : "Gang"
+}
+> db.posts.insert({username:"GoodGuyGreg", title:"Passes out at Party",body:"Raises ypur credit score"})
+WriteResult({ "nInserted" : 1 })
+> db.posts.insert({username:"GoodGuyGreg", title:"Steals your identity",body:"Raises your credit score"})
+WriteResult({ "nInserted" : 1 })
+> db.posts.insert({username:"GoodGuyGreg", title:"Reports a bug in your code", body:"Sends you a pull request"})
+WriteResult({ "nInserted" : 1 })
+> db.posts.insert({username:"ScumbagSteve", title:"Borrows something", body:"Sells it"})
+WriteResult({ "nInserted" : 1 })
+> db.posts.insert({username:"ScumbagSteve", title:"Borrows everything", body:"The end"})
+WriteResult({ "nInserted" : 1 })
+> db.posts.insert({username:"ScumbagSteve", title:"Forks your repo on github", body:"Sets to private"})
+WriteResult({ "nInserted" : 1 })
+> db.posts.find()
+{ "_id" : ObjectId("61081484b07a149005b02a8f"), "username" : "GoodGuyGreg", "title" : "Passes out at Party", "body" : "Raises ypur credit score" }
+{ "_id" : ObjectId("610814dab07a149005b02a90"), "username" : "GoodGuyGreg", "title" : "Steals your identity", "body" : "Raises your credit score" }
+{ "_id" : ObjectId("6108151eb07a149005b02a91"), "username" : "GoodGuyGreg", "title" : "Reports a bug in your code", "body" : "Sends you a pull request" }
+{ "_id" : ObjectId("61081586b07a149005b02a92"), "username" : "ScumbagSteve", "title" : "Borrows something", "body" : "Sells it" }
+{ "_id" : ObjectId("610815a7b07a149005b02a93"), "username" : "ScumbagSteve", "title" : "Borrows everything", "body" : "The end" }
+{ "_id" : ObjectId("610815dcb07a149005b02a94"), "username" : "ScumbagSteve", "title" : "Forks your repo on github", "body" : "Sets to private" }
+> db.comments.insert({username:"GoodGuyGreg",comment:"Hope you got a good deal!",post:ObjectId("61081586b07a149005b02a92})
+uncaught exception: SyntaxError: "" literal not terminated before end of script :
+@(shell):1:120
+> db.comments.insert({username:"GoodGuyGreg",comment:"Hope you got a good deal!",post:ObjectId("61081586b07a149005b02a92"})
+... db.comments.insert({username:"GoodGuyGreg",comment:"Hope you got a good deal!",post:ObjectId("61081586b07a149005b02a92"})
+... db.comments.insert({username:"GoodGuyGreg",comment:"Hope you got a good deal!",post:ObjectId("61081586b07a149005b02a92")})
+...
+..db.comments.insert({username:"GoodGuyGreg",comment:"Hope you got a good deal!",post:ObjectId("61081586b07a149005b02a92")})})
+WriteResult({ "nInserted" : 1 })GoodGuyGreg",comment:"Hope you got a good deal!",post:ObjectId("61081586b07a149005b02a92")})
+> db.comments.insert({username:"GoodGuyGreg",comment:"Hope you got a good deal!",post:ObjectId("61081586b07a149005b02a92")})
+> db.comments.insert({username:"GoodGuyGreg",comment:"Hope you got a good deal!",post:ObjectId("61081586b07a149005b02a92")})
+> db.comments.insert({username:"GoodGuyGreg",comment:"Hope you got a good deal!",post:ObjectId("61081586b07a149005b02a92")db.comments.insert({username:"GoodGuyGreg",comment:"Hope you got a good deal!",post:ObjectId("61081586b07a149005b02a92")db.comments.insert({username:"GoodGuyGreg",comment:"Hope you got a good deal!",post:ObjectId("61081586b07a149005b02a92})db.comments.insert({username:"GoodGuyGreg",comment:"Hope you got a good deal!",post:ObjectId("61081586b07a149005b02a92})
+uncaught exception: SyntaxError: "" literal not terminated before end of script :
+@(shell):1:120
+> db.comments.insert({username:"GoodGuyGreg",comment:"What's mine is yours!",post:ObjectId("61081586b07a149005b02a93")})
+WriteResult({ "nInserted" : 1 })
+> db.comments.insert({username:"GoodGuyGreg",comment:"Don't violate the licensing agreement!",post:ObjectId("61081586b07a149005b02a94")})
+WriteResult({ "nInserted" : 1 })
+> db.comments.insert({username:"ScumbagSteve",comment:"It still isn't clean",post:ObjectId("61081586b07a149005b02a8f")})
+WriteResult({ "nInserted" : 1 })
+> db.comments.insert({username:"ScumbagSteve",comment:"Denied your PRcause I found a hack",post:ObjectId("61081586b07a149005b02a91")})
+WriteResult({ "nInserted" : 1 })
+> db.comments.find()
+{ "_id" : ObjectId("610818dcb07a149005b02a95"), "username" : "GoodGuyGreg", "comment" : "Hope you got a good deal!", "post" : ObjectId("61081586b07a149005b02a92") }
+{ "_id" : ObjectId("61081959b07a149005b02a96"), "username" : "GoodGuyGreg", "comment" : "What's mine is yours!", "post" : ObjectId("61081586b07a149005b02a93") }
+{ "_id" : ObjectId("610819b6b07a149005b02a97"), "username" : "GoodGuyGreg", "comment" : "Don't violate the licensing agreement!", "post" : ObjectId("61081586b07a149005b02a94") }
+{ "_id" : ObjectId("61081a51b07a149005b02a98"), "username" : "ScumbagSteve", "comment" : "It still isn't clean", "post" : ObjectId("61081586b07a149005b02a8f") }
+{ "_id" : ObjectId("61081a8eb07a149005b02a99"), "username" : "ScumbagSteve", "comment" : "Denied your PRcause I found a hack", "post" : ObjectId("61081586b07a149005b02a91") }
+> db.users.find().pretty()
+{
+        "_id" : 1,
+        "username" : "GoodGuyGreg",
+        "first_name" : "Good Guy",
+        "last_name" : "Gang"
+}
+{
+        "_id" : 2,
+        "username" : "ScumbagSteve",
+        "fullname" : {
+                "first" : "Scumbag",
+                "last" : "Steve"
+        }
+}
+> db.posts.find().pretty()
+{
+        "_id" : ObjectId("61081484b07a149005b02a8f"),
+        "username" : "GoodGuyGreg",
+        "title" : "Passes out at Party",
+        "body" : "Raises ypur credit score"
+}
+{
+        "_id" : ObjectId("610814dab07a149005b02a90"),
+        "username" : "GoodGuyGreg",
+        "title" : "Steals your identity",
+        "body" : "Raises your credit score"
+}
+{
+        "_id" : ObjectId("6108151eb07a149005b02a91"),
+        "username" : "GoodGuyGreg",
+        "title" : "Reports a bug in your code",
+        "body" : "Sends you a pull request"
+}
+{
+        "_id" : ObjectId("61081586b07a149005b02a92"),
+        "username" : "ScumbagSteve",
+        "title" : "Borrows something",
+        "body" : "Sells it"
+}
+{
+        "_id" : ObjectId("610815a7b07a149005b02a93"),
+        "username" : "ScumbagSteve",
+        "title" : "Borrows everything",
+        "body" : "The end"
+}
+{
+        "_id" : ObjectId("610815dcb07a149005b02a94"),
+        "username" : "ScumbagSteve",
+        "title" : "Forks your repo on github",
+        "body" : "Sets to private"
+}
+> db.posts.find({username:"GoodGuyGreg"}).pretty()
+{
+        "_id" : ObjectId("61081484b07a149005b02a8f"),
+        "username" : "GoodGuyGreg",
+        "title" : "Passes out at Party",
+        "body" : "Raises ypur credit score"
+}
+{
+        "_id" : ObjectId("610814dab07a149005b02a90"),
+        "username" : "GoodGuyGreg",
+        "title" : "Steals your identity",
+        "body" : "Raises your credit score"
+}
+{
+        "_id" : ObjectId("6108151eb07a149005b02a91"),
+        "username" : "GoodGuyGreg",
+        "title" : "Reports a bug in your code",
+        "body" : "Sends you a pull request"
+}
+> db.posts.find({username:"ScumbagSteve"}).pretty()
+{
+        "_id" : ObjectId("61081586b07a149005b02a92"),
+        "username" : "ScumbagSteve",
+        "title" : "Borrows something",
+        "body" : "Sells it"
+}
+{
+        "_id" : ObjectId("610815a7b07a149005b02a93"),
+        "username" : "ScumbagSteve",
+        "title" : "Borrows everything",
+        "body" : "The end"
+}
+{
+        "_id" : ObjectId("610815dcb07a149005b02a94"),
+        "username" : "ScumbagSteve",
+        "title" : "Forks your repo on github",
+        "body" : "Sets to private"
+}
+> db.comments.find().pretty()
+{
+        "_id" : ObjectId("610818dcb07a149005b02a95"),
+        "username" : "GoodGuyGreg",
+        "comment" : "Hope you got a good deal!",
+        "post" : ObjectId("61081586b07a149005b02a92")
+}
+{
+        "_id" : ObjectId("61081959b07a149005b02a96"),
+        "username" : "GoodGuyGreg",
+        "comment" : "What's mine is yours!",
+        "post" : ObjectId("61081586b07a149005b02a93")
+}
+{
+        "_id" : ObjectId("610819b6b07a149005b02a97"),
+        "username" : "GoodGuyGreg",
+        "comment" : "Don't violate the licensing agreement!",
+        "post" : ObjectId("61081586b07a149005b02a94")
+}
+{
+        "_id" : ObjectId("61081a51b07a149005b02a98"),
+        "username" : "ScumbagSteve",
+        "comment" : "It still isn't clean",
+        "post" : ObjectId("61081586b07a149005b02a8f")
+}
+{
+        "_id" : ObjectId("61081a8eb07a149005b02a99"),
+        "username" : "ScumbagSteve",
+        "comment" : "Denied your PRcause I found a hack",
+        "post" : ObjectId("61081586b07a149005b02a91")
+}
+> db.comments.find({username:"GoodGuyGreg"})
+{ "_id" : ObjectId("610818dcb07a149005b02a95"), "username" : "GoodGuyGreg", "comment" : "Hope you got a good deal!", "post" : ObjectId("61081586b07a149005b02a92") }
+{ "_id" : ObjectId("61081959b07a149005b02a96"), "username" : "GoodGuyGreg", "comment" : "What's mine is yours!", "post" : ObjectId("61081586b07a149005b02a93") }
+{ "_id" : ObjectId("610819b6b07a149005b02a97"), "username" : "GoodGuyGreg", "comment" : "Don't violate the licensing agreement!", "post" : ObjectId("61081586b07a149005b02a94") }
+> db.comments.find({username:"ScumbagSteve"})
+{ "_id" : ObjectId("61081a51b07a149005b02a98"), "username" : "ScumbagSteve", "comment" : "It still isn't clean", "post" : ObjectId("61081586b07a149005b02a8f") }
+{ "_id" : ObjectId("61081a8eb07a149005b02a99"), "username" : "ScumbagSteve", "comment" : "Denied your PRcause I found a hack", "post" : ObjectId("61081586b07a149005b02a91") }
+
+

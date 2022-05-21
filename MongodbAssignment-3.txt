@@ -1,0 +1,114 @@
+
+C:\Users\HP>mongo --host localhost:27017
+MongoDB shell version v5.0.8
+connecting to: mongodb://localhost:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("73d39393-4e0d-4e87-93ce-e598ad34c576") }
+MongoDB server version: 5.0.8
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting:
+        2022-05-13T10:23:07.800+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> use resturents
+switched to db resturents
+> show dbs
+admin           0.000GB
+config          0.000GB
+local           0.000GB
+mongo-practice  0.000GB
+population      0.002GB
+resturents      0.001GB
+test            0.000GB
+
+C:\Users\HP>mongo --host localhost:27017
+MongoDB shell version v5.0.8
+connecting to: mongodb://localhost:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("73d39393-4e0d-4e87-93ce-e598ad34c576") }
+MongoDB server version: 5.0.8
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting:
+        2022-05-13T10:23:07.800+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> use resturents
+switched to db resturents
+> show dbs
+admin           0.000GB
+config          0.000GB
+local           0.000GB
+mongo-practice  0.000GB
+population      0.002GB
+resturents      0.001GB
+test            0.000GB
+
+C:\Users\HP>mongo --host localhost:27017
+MongoDB shell version v5.0.8
+connecting to: mongodb://localhost:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("73d39393-4e0d-4e87-93ce-e598ad34c576") }
+MongoDB server version: 5.0.8
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting:
+        2022-05-13T10:23:07.800+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> use resturents
+switched to db resturents
+> show dbs
+admin           0.000GB
+config          0.000GB
+local           0.000GB
+mongo-practice  0.000GB
+population      0.002GB
+resturents      0.001GB
+test            0.000GB
