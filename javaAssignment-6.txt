@@ -1,0 +1,324 @@
+1.
+import java.util.*;
+enum Gender{
+	Male,Female;
+	}
+class contact <T>{
+	private T[] arr;
+	long phoneNumber;
+	String name;
+	String Email;
+	Object Gender;
+	contact(){}
+	public contact(String name, String email,Object Gender) {
+		super();
+		this.phoneNumber = this.phoneNumber;
+		this.name = name;
+		this.Gender=Gender;
+		this.Email = email;
+	} 
+	public String toString() {
+		return "["+name+", "+Email+", "+Gender+"]";
+		 		
+	}
+}
+public class Collections1 {
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Gender M=Gender.Male;
+		Gender F=Gender.Female;
+		contact[] obj=new contact[5];
+		obj[0]=new contact<Object>("Ram","ram1@gmail.com",M);
+		obj[1]=new contact<Object>("Sita","sita2@gmail.com",M);
+		obj[2]=new contact<Object>("Gita","gita3@gmail.com",M);
+		obj[3]=new contact<Object>("Ravi","ravi4@gmail.com",F);
+		obj[4]=new contact<Object>("Somu","somu5@gmail.com",F);
+		TreeMap<Long,contact> t= new TreeMap<Long,contact>(Collections.reverseOrder());
+		t.put((long)963767390,obj[0]);
+		t.put((long)964378961,obj[1]);
+		t.put((long)961768767,obj[2]);
+		t.put((long)961879867,obj[3]);
+		t.put((long)967987987,obj[4]);
+		System.out.println("-----Keys----\n");
+		for(Map.Entry m1:t.entrySet()){ 
+			System.out.println(m1.getKey());
+		}
+		System.out.println("\n----Values----\n");
+			for(Map.Entry m:t.entrySet()){ 
+				System.out.println(m.getValue().toString());
+			}
+			System.out.println("\n-----KeyValue pairs-----\n");
+		for(Map.Entry m:t.entrySet()){ 
+		       System.out.println(m.getKey()+" :"+m.getValue().toString());    
+		      }    
+	    }
+        }
+
+2.
+import java.util.HashSet;
+
+class product{
+	private int num;
+
+	public product(int num) {
+		super();
+		this.num = num;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append(num);
+		return builder.toString();
+	}
+	
+}
+public class Collections2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		product[] p=new product[10];
+		HashSet<Object> hs=new HashSet<Object>();
+		p[0]=new product(1);
+		p[1]=new product(1);
+		p[2]=new product(2);
+		p[3]=new product(2);
+		p[4]=new product(3);
+		p[5]=new product(3);
+		p[6]=new product(3);
+		p[7]=new product(3);
+		p[8]=new product(3);
+		p[9]=new product(3);
+		hs.add(p[0]);
+		hs.add(p[5]);
+		hs.add(p[1]);
+		hs.add(p[2]);
+		hs.add(p[3]);
+		hs.add(p[6]);
+		hs.add(p[7]);
+		hs.add(p[8]);
+		hs.add(p[9]);
+		hs.add(p[2]);
+		hs.add(p[3]);
+		hs.add(p[4]);
+		System.out.println(hs.toString());
+	}
+
+}
+
+3.
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+class Employee<T> implements Comparable{
+	private T[] arr;
+    int id;
+	String name;
+	String dept;
+	double salary;
+	public Employee(int id, String name, String dept, double salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.dept = dept;
+		this.salary = salary;
+	}
+	Employee(){}
+	
+	 @Override
+	public String toString() {
+		return "("+id+", "+name+", "+dept+", "+salary+")";
+	}
+	public Integer toStringId() {
+		return id;
+	}
+	public double toStringSalary() {
+		
+		return salary;
+	}
+	public String toStringDept() {
+		
+		return dept;
+	}
+	public String toStringName() {
+		
+		return name;
+	}
+	@Override
+	public int compareTo(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+}
+public class Collections3 {
+
+	@SuppressWarnings({ "rawtypes", "unused" })
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		HashSet<Employee> t= new HashSet<Employee>(); 
+		Employee emp=new Employee();
+		Employee[] e=new Employee[10];
+		e[0]=new Employee<Object>(1,"Ram","IT",20000);
+		e[1]=new Employee<Object>(2,"Lakshman","Mech",21000);
+		e[2]=new Employee<Object>(3,"Ravi","ECE",19000);
+		e[3]=new Employee<Object>(4,"Ramesh","EEE",22000);
+		e[4]=new Employee<Object>(5,"Gita","CIVL",40000);
+		e[5]=new Employee<Object>(6,"Sita","IT",20000);
+		e[6]=new Employee<Object>(7,"Siri","Mech",21000);
+		e[7]=new Employee<Object>(8,"Akhil","ECE",19000);
+		e[8]=new Employee<Object>(9,"Harish","EEE",22000);
+		e[9]=new Employee<Object>(10,"Sravya","CIVL",40000);
+		t.add(e[0]);
+		t.add(e[1]);
+		t.add(e[2]);
+		t.add(e[3]);
+		t.add(e[4]);
+		t.add(e[5]);
+		t.add(e[6]);
+		t.add(e[7]);
+		t.add(e[8]);
+		t.add(e[9]);
+		System.out.println(t);
+		ArrayList<Integer> l1=new ArrayList<Integer>();
+		ArrayList<String> l2=new ArrayList<String>();
+		ArrayList<String> l3=new ArrayList<String>();
+		ArrayList<Double> l4=new ArrayList<Double>();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("choose the below options:\n1 for Id\n2 for names\n3 for departments\n4 for salary ");
+		int c=sc.nextInt();
+		if(c==1) {
+			Iterator value = t.iterator();
+	        System.out.println("The Id's are: ");
+	        while (value.hasNext()) {
+	        	l1.add((Integer) ((Employee) value.next()).toStringId());
+	        	}
+	        Collections.sort(l1);
+	        System.out.println(l1);
+		}
+		else if(c==2) {
+			Iterator value = t.iterator();
+	        System.out.println("The Names are: ");
+	        while (value.hasNext()) {
+	        	l1.add((Integer) ((Employee) value.next()).toStringId());
+	        	l2.add((String) ((Employee) value.next()).toStringName());
+	        	}
+	        Collections.sort(l2);
+	        System.out.println(l2);
+		}
+		else if(c==3) {
+			Iterator value = t.iterator();
+	        System.out.println("The departments are: ");
+	        while (value.hasNext()) {
+	        	l3.add((String) ((Employee) value.next()).toStringDept());
+	        	}
+	        Collections.sort(l3);
+	        System.out.println(l3);
+		}
+		else if(c==4) {
+			Iterator value = t.iterator();
+	        System.out.println("The salaries are: ");
+	        while (value.hasNext()) {
+	        	l4.add((Double) ((Employee) value.next()).toStringSalary());
+	        	}
+	        Collections.sort(l4);
+	        System.out.println(l4);
+		}
+		else {
+			System.out.println("Choose option between 1 to 4.");
+		}
+	}
+
+}
+
+4.
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.Set;
+class date{
+	static int month;
+	static int day;
+	static int year;
+
+
+	public date(int month, int day, int year) { 
+	this.day = day;
+	this.month = month;
+	this.year = year;
+	}
+
+	public static int getMonth() {
+	return month;
+	}
+
+	public static int getDay() {
+	return day;
+	}
+
+	public static int getYear() {
+	return year;
+	} 
+   
+  
+   public String toString() {
+	   return "" + day + ", " + month + " , " + year + "";
+   }
+   
+    	
+    }
+ 
+
+
+
+public class Collections4 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		LinkedList<date> list=new LinkedList<>();
+		list.add(new date(23,12,2000));
+		
+        
+		System.out.println("Your date of birth is "+date.getMonth()+"-"+date.getDay()+"-"+date.getYear());
+		
+		{
+		if(date.getYear()%4==0)
+		{
+			System.out.println("and it was a leap year");
+		}
+		else
+		{
+			System.out.println("and it was not a leap year");
+		}
+		}
+          list.add(new date(23,12,2001));
+		
+        
+		System.out.println("Your date of birth is "+date.getMonth()+"-"+date.getDay()+"-"+date.getYear());
+		
+		{
+		if(date.getYear()%4==0)
+		{
+			System.out.println("and it was a leap year");
+		}
+		else
+		{
+			System.out.println("and it was not a leap year");
+		}
+		}
+		
+		
+
+	}
+
+	
+
+}

@@ -1,0 +1,146 @@
+import java.util.*;
+1.
+class Employee{
+	int id;
+	String name;
+	String dept;
+	double salary;
+	Employee(){}
+	public Employee(int id, String name, String dept, double salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.dept = dept;
+		this.salary = salary;
+	}
+	void display(HashSet<Employee> o){
+		for(Employee b:o){  
+		    System.out.println(b.id+" "+b.name+" "+b.dept+" "+b.salary);  
+	}
+	}
+}
+class customer{
+	
+}
+public class Generics1 {
+	public static void main(String[] args) {
+		Employee emp=new Employee();
+		Employee emp1=new Employee(1,"A","CSE",40000);
+		Employee emp2=new Employee(2,"B","ECE",26000);
+		Employee emp3=new Employee(3,"C","EEE",31050);
+		Employee emp4=new Employee(4,"D","Mech",29080);
+		HashSet<Employee> set=new HashSet<Employee>();  
+        set.add(emp1);
+        set.add(emp2);
+        set.add(emp3);
+        set.add(emp4);
+        emp.display(set);
+	}
+
+}
+
+2.
+import java.util.*;
+public class Generics2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Random rand= new Random();
+		HashSet<Number> hs=new LinkedHashSet<Number>();
+		for(int i=0;i<10;i++) {
+			int keys=rand.nextInt(100);
+			double values=rand.nextDouble();
+			hs.add(keys);
+			hs.add(values);
+		}
+		List<Number> list = new ArrayList<Number>(hs);
+		for(int j=0;j<list.size();j+=2) {
+			System.out.println("Key : "+list.get(j)+" Value : "+list.get(j+1));
+			
+		}
+		}
+	}
+
+3.
+class Generics<T>{
+	private T[] arr;
+	public T[] getArr() {
+		return arr;
+	}
+	public void setArr(T[] arr) {
+		this.arr=arr;
+	}
+	public Generics(T[] arr) {
+		super();
+		this.arr=arr;
+	}
+	public<E>void Exchange(E[] arr) {
+		System.out.println("Elements to be exchanged are "+ arr[0]+" "+arr[1]);
+		E temp=(E) arr[0];
+		arr[0]=arr[1];
+		arr[1]=temp;
+		System.out.println("After exchanging:"+arr[0]+" "+arr[1]);
+	}
+}
+public class Generics3 {
+
+	public static void main(String[] args) {
+		Integer arr[]= {20,30};
+		Generics<Integer> e = new Generics<Integer>(arr);
+		e.Exchange(arr);
+	}
+}
+
+4.
+import java.util.Date;
+import java.util.HashMap;
+
+class pair<key,value>{
+	private String key;
+	private String value;
+	private Date date;
+	pair(){}
+	public pair(String key, String value) {
+		super();
+		this.setKey(key);
+		this.value = value;
+	}
+	
+	public pair(String key, Date date) {
+		super();
+		this.key = key;
+		this.date = date;
+	}
+	public String getKey() {
+		return key;
+	}
+	public void setKey(String key) {
+		this.key = key;
+	}
+	public String getValue() {
+		return value;
+	}
+	public void setValue(String value) {
+		this.value = value;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
+}
+public class Generics4 {
+
+	public static void main(String args[]) {
+		pair<String,String> p=new pair<String,String>("1","Hello");
+		HashMap<String,String> h=new HashMap<String,String>();
+		pair<String,Date> p1=new pair<String,Date>("Today is ",new java.util.Date());
+		h.put(p.getKey(),p.getValue());
+		System.out.println(h);
+		HashMap<String,String h1=new HashMap<String,String>();
+		h1.put(p1.getKey(),p1.getValue());
+		System.out.println(h1);
+	}
+}

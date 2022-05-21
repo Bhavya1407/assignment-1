@@ -1,0 +1,240 @@
+public class Armstrong {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int num = 153, number, temp, total = 0;
+		number = num;
+		while (number != 0) {
+			temp = number % 10;
+			total = total + (temp * temp * temp);
+			number /= 10;
+		}
+		if (total == num)
+			System.out.println(num + " is an Armstrong Number");
+		else
+			System.out.println(num + " is an Armstrong Number");
+	}
+
+}
+
+2.
+public class Armstrong2 {
+		public static void main(String[] args) {
+			// TODO Auto-generated method stub
+			int i=100,a,arm,n;
+			System.out.println("Armstrong numbers between 100 and 999");
+			while(i<999) {
+				n=i;
+				arm=0;
+				while(n>0) {
+					a=n%10;
+					arm=arm+(a*a*a);
+					n=n/10;
+				}
+				if(arm==i) 
+					System.out.println(i);
+				   i++;
+			}
+
+
+	}
+
+}
+
+3.
+public class Interests {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		double amount=0,principle=1000,rate=10,time=3,ci,si;
+		System.out.println("Principle="+ principle+"\nRate="+rate+"\nTime="+time);
+		si=(principle*rate*time)/100;
+		System.out.println("The Simple Interest is :"+si);
+		amount=principle*((1+rate/100)*(1+rate/100)*(1+rate/100));
+		System.out.println("The amount is :"+amount);
+		ci=amount-principle;
+		System.out.println("The Compound Interest is :"+ci);
+}
+
+}
+
+4.
+import java.util.*;
+public class StudentGrade {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Enter the first subject Marks:");
+		int sub1=sc.nextInt();
+		System.out.print("Enter the second subject Marks:");
+		int sub2=sc.nextInt();
+		System.out.print("Enter the third subject Marks:");
+		int sub3=sc.nextInt();
+		if(sub1>=60 && sub2>=60 && sub3>=60) {
+			System.out.println("pass");
+		}
+		else if((sub1>=60 && sub2>=60) || (sub2>=60 && sub3>=60) || (sub3>=60 && sub1>=60)) {
+			System.out.println("promoted");
+		}
+		else if((sub1<60 && sub2<60 && sub3<60) ||(sub1>60 || sub2>60 || sub3>60)){
+			System.out.println("fail");
+		}
+
+5.
+import java.util.Scanner;
+public class Incometax {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		double tax=0,it;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Annual Income is");
+		it=sc.nextDouble();
+		if(it<=180000)
+			tax=0;
+		else if(it<=300000)
+			tax=0.1*(it-180000);
+		else if(it<=500000)
+			tax=(0.2*(it-300000)+12000);
+		else if(it<=1000000)
+			tax=(0.3*(it-500000)+52000);
+		System.out.println("Income tax amount is "+tax);
+
+
+	}
+
+}
+
+6.
+import java.util.*;
+public class Login {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		String username="ABC";
+		String password="ABCDE";
+		String uname,pssd;
+		int i=1;
+		while(i>0) {
+			System.out.println("Username:");
+			uname=sc.next();
+			System.out.println("Password:");
+			pssd=sc.next();
+			if(username.equals(uname) && password.equals(pssd))
+			{
+				System.out.println("Welcome "+uname);
+				break;
+			}
+			else
+			{
+				System.out.println("Username and Password are wrong!Re-enter");
+				i++;
+			}
+			if(i>3) {
+				System.out.println("Contact Admin");
+				break;
+			}
+		}
+	}
+}
+
+7.
+
+import java.util.*;
+public class Search {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+int arr[]= {5,12,14,6,78,19,1,23,26,35,37,7,52,86,47};
+@SuppressWarnings("resource")
+Scanner sc=new Scanner(System.in);
+System.out.println("Element to be searched is ");
+int searchNumber=sc.nextInt();
+for(int i=0;i<arr.length;i++) {
+	if(arr[i] == searchNumber)
+	{
+		System.out.println(searchNumber+" is present at "+i);
+	}
+	
+}
+	}
+}
+
+8.
+public class Sorting {
+	public static void main(String arge[])
+	{
+		int arr[]= {5,12,14,6,78,19,1,23,26,35,37,7,52,86,47};
+		int n = arr.length;  
+	    int temp = 0;  
+	    for(int i=0; i < n; i++)
+	    {  
+	        for(int j=1; j < (n-i); j++)
+	        {  
+	            if(arr[j-1] > arr[j])
+	            { 
+	                temp = arr[j-1];  
+	                arr[j-1] = arr[j];  
+	                arr[j] = temp;  
+	            }  
+	                          
+	         }  
+	     }
+	    System.out.println("Sorted array is:");
+	    for(int i=0;i<n;i++) {
+	    System.out.print(" "+arr[i]);
+	    }
+	}
+
+}
+
+9.
+import java.util.*;
+public class Totalavg {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the marks of student 1:");
+		System.out.print("A:");
+		int A1=sc.nextInt();
+		System.out.print("B:");
+		int B1=sc.nextInt();
+		System.out.print("C:");
+		int C1=sc.nextInt();
+		System.out.println("Enter the marks of student 2:");
+		System.out.print("A:");
+		int A2=sc.nextInt();
+		System.out.print("B:");
+		int B2=sc.nextInt();
+		System.out.print("C:");
+		int C2=sc.nextInt();
+		System.out.println("Enter the marks of student 3:");
+		System.out.print("A:");
+		int A3=sc.nextInt();
+		System.out.print("B:");
+		int B3=sc.nextInt();
+		System.out.print("C:");
+		int C3=sc.nextInt();
+		int sum1=A1+B1+C1;
+		int sum2=A2+B2+C2;
+		int sum3=A3+B3+C3;
+		int avg1=sum1/3;
+		int avg2=sum2/3;
+		int avg3=sum3/3;
+		int A_subTotal=A1+A2+A3;
+		int B_subTotal=B1+B2+B3;
+		int C_subTotal=C1+C2+C3;
+		int A_avg=A_subTotal/3;
+		int B_avg=B_subTotal/3;
+		int C_avg=C_subTotal/3;
+		System.out.println("Student 1 total "+sum1+" and average marks "+avg1);
+		System.out.println("Student 2 total "+sum2+" and average marks "+avg2);
+		System.out.println("Student 3 total "+sum3+" and average marks "+avg3);
+		System.out.println("Subject A total "+A_subTotal+" and average marks "+A_avg);
+                System.out.println("Subject B total "+B_subTotal+" and average marks "+B_avg);
+		System.out.println("Subject C total "+C_subTotal+" and average marks "+C_avg);
+	}
+}

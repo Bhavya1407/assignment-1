@@ -1,0 +1,221 @@
+1.
+import java.util.*;
+		public class CheckSingleton {
+			static CheckSingleton obj = new CheckSingleton();
+			private CheckSingleton() 
+			{
+				
+			}
+			public static CheckSingleton getobj()
+			{
+				return obj;
+				
+			}
+			
+		}
+		class Subclass extends CheckSingleton
+		{
+			public static void main(String[] args)
+			{
+			Subclass act= new Subclass();
+			act.getobj();
+			}
+			
+		}
+
+2.
+class Employee{
+	int id;
+	String name;
+	int salary;
+	int totalSal=0;
+	public void totalSalary(int salary) {
+		totalSal+=salary;
+	}
+}
+class Manager extends Employee{
+	int incentive;
+	Manager(int id,String name,int salary,int incentive){
+		this.id=id;
+		this.name=name;
+		this.salary=salary;
+		this.incentive=incentive;
+	}
+	public int totalSalary() {
+		return  totalSal+=(salary+incentive);
+	}
+	
+}
+class Labour extends Employee{
+	int extraTimeSal;
+	Labour(int id,String name,int salary,int extraTimeSal){
+		this.id=id;
+		this.name=name;
+		this.salary=salary;
+		this.extraTimeSal=extraTimeSal;
+	}
+	public int totalSalary() {
+		return totalSal+=(salary+extraTimeSal);
+	}
+}
+public class organizationHierarchy {
+
+	public static void main(String[] args) {
+		Manager m=new Manager(1,"Sita",40000,3000);
+		System.out.println((m.name)+" has earned Rs."+m.totalSalary());
+		Labour L=new Labour(2,"Gita",2000,900);
+		System.out.println((L.name)+" daily wage is Rs."+(L.totalSalary()));
+
+	}}
+
+
+3.
+class BankAcc{
+	double totalAmt=0;
+	double totalAmount() {
+		return totalAmt;
+	}
+}
+class Saving extends BankAcc
+{
+	double fixedDeposit;
+	Saving(double fixedDeposit){
+		this.fixedDeposit=fixedDeposit;
+	}
+	public double totalAmount() 
+	{
+		return (totalAmt+=fixedDeposit);		
+	}
+}
+class Current extends BankAcc
+{
+	double cashCredit;
+	Current(double cashCredit){
+		this.cashCredit=cashCredit;
+	}
+	public double totalAmount() 
+	{
+		return (totalAmt+=cashCredit);		
+	}
+}
+public class BankAccount{
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		BankAcc b = new BankAcc();
+		Saving s=new Saving(30000);
+		b.totalAmt=s.totalAmount();
+		Current c=new Current(2000);
+		b.totalAmt=b.totalAmt+c.totalAmount();
+		
+		System.out.println("Total amount in the bank is Rs."+b.totalAmt);
+	}
+
+}
+
+4.
+abstract class Abs{
+	public abstract void animals();
+	public abstract void birds();
+}
+class animal{
+	public void animals() {
+		System.out.println("Animals are part of nature");
+	}
+}
+abstract class sparrow extends Abs{
+	public abstract void birds();
+}
+class Bird extends Abs{
+	public void birds() {
+		System.out.println("Birds are called ecological handyman");
+	}
+
+	public void animals() {
+			}
+
+}
+public class Absclass {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		animal a=new animal();
+		a.animals();
+		Bird b=new Bird();
+		b.birds();
+	}
+
+}
+
+5.
+abstract class Shape{
+	public abstract void draw();
+}
+class line extends Shape{
+	public void draw() {
+		System.out.println("Draw a line");
+	}
+}
+class Rectangle extends Shape{
+	public void draw() {
+		System.out.println("Draw a Rectangle");
+	}
+}
+class circle extends Shape{
+	public void draw() {
+		System.out.println("Draw a circle");
+	}
+}
+class square extends Shape{
+	public void draw() {
+		System.out.println("Draw a square");
+	}
+}
+public class Shapes {
+
+	public static void main(String[] args) {
+		line l=new line();
+		l.draw();
+		Rectangle r=new Rectangle();
+		r.draw();
+		square s=new square();
+		s.draw();
+		circle c=new circle();
+		c.draw();
+	}
+
+}
+
+6.
+abstract class persistence{
+	abstract void persist();
+}
+
+class FilePersistence extends persistence{
+
+	@Override
+	void persist() {
+		System.out.println("File Persistence");	
+	}	
+}
+
+class DatabasePersistence extends persistence{
+
+	@Override
+	void persist() {
+		System.out.println("Database Persistence");
+	}	
+}
+
+public class Persistance {
+
+	public static void main(String[] args) {
+		
+		persistence FP=new FilePersistence();
+		persistence DP=new DatabasePersistence();
+		
+		FP.persist();
+		DP.persist();
+
+	}
+}
