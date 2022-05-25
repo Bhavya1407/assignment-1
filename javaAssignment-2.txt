@@ -24,198 +24,263 @@ import java.util.*;
 		}
 
 2.
-class Employee{
-	int id;
-	String name;
-	int salary;
-	int totalSal=0;
-	public void totalSalary(int salary) {
-		totalSal+=salary;
-	}
-}
-class Manager extends Employee{
-	int incentive;
-	Manager(int id,String name,int salary,int incentive){
-		this.id=id;
-		this.name=name;
-		this.salary=salary;
-		this.incentive=incentive;
-	}
-	public int totalSalary() {
-		return  totalSal+=(salary+incentive);
-	}
-	
-}
-class Labour extends Employee{
-	int extraTimeSal;
-	Labour(int id,String name,int salary,int extraTimeSal){
-		this.id=id;
-		this.name=name;
-		this.salary=salary;
-		this.extraTimeSal=extraTimeSal;
-	}
-	public int totalSalary() {
-		return totalSal+=(salary+extraTimeSal);
-	}
-}
-public class organizationHierarchy {
+class EMP //creatin base class
+{
+   void total_sal(int man, int lab) //creating a method
+    {
+        int t= man+ lab;
+        System.out.println("this is emp total salary="+t);
+        
+    }
 
-	public static void main(String[] args) {
-		Manager m=new Manager(1,"Sita",40000,3000);
-		System.out.println((m.name)+" has earned Rs."+m.totalSalary());
-		Labour L=new Labour(2,"Gita",2000,900);
-		System.out.println((L.name)+" daily wage is Rs."+(L.totalSalary()));
+    
+}
+class Man extends EMP //inherting the base classe(overriding )
+{
+   void total_sal()
+   {
+       
+       System.out.println("this manager salary");
+   }
+}
+class Labo extends EMP
+{
+    void total_sal()
+    {
+        System.out.println("this labour salary");
+    }
 
-	}}
+}
+public class EML
+{
+    public static void main(String args[])
+    {
+        Man ts= new Man ();//creating a object for child class
+        ts.total_sal(200084,23764);//calling a method
+        
+
+    }
+}
 
 
 3.
-class BankAcc{
-	double totalAmt=0;
-	double totalAmount() {
-		return totalAmt;
-	}
-}
-class Saving extends BankAcc
+ class Bank
 {
-	double fixedDeposit;
-	Saving(double fixedDeposit){
-		this.fixedDeposit=fixedDeposit;
-	}
-	public double totalAmount() 
-	{
-		return (totalAmt+=fixedDeposit);		
-	}
+    String name;
+    double totalcash;
+    public Bank(String AccountholderName,double totalcash)
+   {
+   super();
+   this.name =AccountholderName;
+   this.totalcash= totalcash;
+   }
+   public String getAccountholderName(){
+   return name;
+   }
+   public void setAccountholderName(String AccountholderName){
+   this.name=AccountholderName;
+   }
+   public double gettotalcash(){
+   return totalcash;
+   }
+   public void settotalcash(double totalcash){
+   this.totalcash=totalcash;
+   }
 }
-class Current extends BankAcc
+
+ class Savingsaccount extends Bank{
+    long fixeddeposit=800000;
+    double rateofinterest =0.9;
+    public Savingsaccount(String AccountholderName,double totalcash)
+    {
+    super(AccountholderName,totalcash);
+    }
+    public double gettotalcash(){
+    return totalcash+(fixeddeposit*rateofinterest);
+    }
+}
+
+ class Currentaccount extends Bank{
+    long cashcredit=500000;
+    public Currentaccount(String AccountholderName,double totalcash)
+    {
+      super (AccountholderName,totalcash);
+    }
+    public double gettotalcash(){
+    return totalcash+cashcredit;
+    }
+    }
+
+public class BankCash 
 {
-	double cashCredit;
-	Current(double cashCredit){
-		this.cashCredit=cashCredit;
-	}
-	public double totalAmount() 
-	{
-		return (totalAmt+=cashCredit);		
-	}
-}
-public class BankAccount{
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		BankAcc b = new BankAcc();
-		Saving s=new Saving(30000);
-		b.totalAmt=s.totalAmount();
-		Current c=new Current(2000);
-		b.totalAmt=b.totalAmt+c.totalAmount();
-		
-		System.out.println("Total amount in the bank is Rs."+b.totalAmt);
-	}
-
-}
+    public static void main(String[] args)
+     { double Tcash;
+       Savingsaccount sa=new Savingsaccount("abbas",500000);
+       sa.gettotalcash();
+       Currentaccount ca=new Currentaccount("khasim",600000);
+        ca.gettotalcash();
+       Tcash=sa.gettotalcash()+ca.gettotalcash();
+       System.out.println("name of accountholder:"+sa.getAccountholderName()+" and totalcash:"+sa.gettotalcash());
+       System.out.println("name of accountholder:"+ca.getAccountholderName()+" and totalcash:"+ca.gettotalcash());
+       System.out.println("total cash in bank:"+Tcash);
+    }
+ }
 
 4.
-abstract class Abs{
-	public abstract void animals();
-	public abstract void birds();
-}
-class animal{
-	public void animals() {
-		System.out.println("Animals are part of nature");
-	}
-}
-abstract class sparrow extends Abs{
-	public abstract void birds();
-}
-class Bird extends Abs{
-	public void birds() {
-		System.out.println("Birds are called ecological handyman");
-	}
+public class App 
+{
+    private static App app;
+     
+    private App()
+    {
 
-	public void animals() {
-			}
+    }
+    public static App getInstance()
+    {
+        if(null == app)
+        {
+            app = new App();
+        }
+        return app;
+    }
 
-}
-public class Absclass {
+    
+    public static void main(String args[])
+    {
+       App app= App.getInstance();
+       App app1= App.getInstance();
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		animal a=new animal();
-		a.animals();
-		Bird b=new Bird();
-		b.birds();
-	}
-
+    }
 }
 
 5.
-abstract class Shape{
-	public abstract void draw();
+abstract class Shape   //4.Abstract class can not be private here by 
+                     //default public and also can not be final
+{
+     abstract void draw();
+    
 }
-class line extends Shape{
-	public void draw() {
-		System.out.println("Draw a line");
-	}
-}
-class Rectangle extends Shape{
-	public void draw() {
-		System.out.println("Draw a Rectangle");
-	}
-}
-class circle extends Shape{
-	public void draw() {
-		System.out.println("Draw a circle");
-	}
-}
-class square extends Shape{
-	public void draw() {
-		System.out.println("Draw a square");
-	}
-}
-public class Shapes {
 
-	public static void main(String[] args) {
-		line l=new line();
-		l.draw();
-		Rectangle r=new Rectangle();
-		r.draw();
-		square s=new square();
-		s.draw();
-		circle c=new circle();
-		c.draw();
-	}
 
+abstract class Shows //You can declare a class abstract without having any abstract method
+{
+    void talk()
+    {
+        System.out.println("this is talk show");
+    }
+
+}
+
+
+//*3. When we extend an abstract class, we must either override all the
+//abstract methods in sub class 
+//or declare subclass as abstract
+
+ class line extends Shape
+   {
+       void draw()
+       {
+           System.out.println("Drawing a line ");
+       }
+   }
+
+
+//
+
+public class Abstr4 {
+    public static void main(String args[])
+    {
+    // 2.object for the abstract class can not be created object created
+    // for only sub classes
+      
+    line l = new line();
+    l.draw();  
+}
 }
 
 6.
-abstract class persistence{
-	abstract void persist();
+import java.util.Scanner;
+interface Persistence
+{
+   public void persist ();
+
+}
+class FilePersistence implements Persistence
+{
+     public void persist()
+    {
+        System.out.println("persistance sub class 1 ");
+    }
+}
+class  DatabasePersistence implements Persistence 
+{
+    public void persist()
+    {
+        
+        System.out.println("persistenace sub class 2");
+    }
+}
+public class Persis
+ {
+    public static void main(String args[])
+    {
+        String data;
+        Scanner sc =new Scanner(System.in);
+        System.out.println("Enter the data ");
+        data =sc.next();
+        if(data=="FilePersistance")
+        {
+            FilePersistence obj=new FilePersistence();
+         obj.persist();
+        }
+        else{
+            DatabasePersistence obj1=new DatabasePersistence();
+            obj1.persist();
+        }
+    }
 }
 
-class FilePersistence extends persistence{
+7.
 
-	@Override
-	void persist() {
-		System.out.println("File Persistence");	
-	}	
+
+import javax.sound.sampled.Line;
+
+abstract class Shape
+{
+   abstract void draw();
+
 }
-
-class DatabasePersistence extends persistence{
-
-	@Override
-	void persist() {
-		System.out.println("Database Persistence");
-	}	
+class line extends Shape
+{
+    void draw()
+    {
+        System.out.println("Drawing a line ");
+    }
 }
+class Rect extends Shape  
+{
+    void draw()
+    {
+        System.out.println("Drawing a Rectangle");
+    }
+}
+class Cube extends Shape
+{
+    void draw()
+    {
+        System.out.println("Drawing a Cube");
+    }
+}
+class Shapes{
+ public static void main(String args[])
+    {
+        line l =new line();
+        l.draw();
+        Rect r =new Rect();
+        r.draw();
+        Cube c=new Cube();
+        c.draw();
 
-public class Persistance {
-
-	public static void main(String[] args) {
-		
-		persistence FP=new FilePersistence();
-		persistence DP=new DatabasePersistence();
-		
-		FP.persist();
-		DP.persist();
-
-	}
+        
+    }
 }
